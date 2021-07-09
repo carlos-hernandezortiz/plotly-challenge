@@ -69,7 +69,7 @@ function gaugeChart(sampleWfreq) {
 
 function plotter(testId){
     //promise from json file
-    d3.json("../data/samples.json").then((data)=> {
+    d3.json("samples.json").then((data)=> {
         var sampleWfreq = data.metadata.filter(d => String(d.id) === testId)[0];
     //filtered values by given on testId
         var filteredSamples = data.samples.filter(d => String(d.id) === testId)[0];
@@ -162,7 +162,7 @@ function optionChanged(testId) {
 function init() {
 // select dropdown menu 
     var selection = d3.select("#selDataset");
-    d3.json("../data/samples.json").then((data)=> {
+    d3.json("samples.json").then((data)=> {
 
         data.names.forEach(function(name) {
             selection.append("option").text(name).property("value");
